@@ -1,6 +1,6 @@
 {
     "name": "kielabokkie/oauth-proxy",
-    "description": "OAuth Proxy for single-page apps.",
+    "description": "OAuth Proxy for single-page apps",
     "keywords": ["oauth", "proxy", "laravel", "lumen"],
     "license": "MIT",
     "type": "project",
@@ -23,8 +23,7 @@
     },
     "autoload-dev": {
         "classmap": [
-            "tests/",
-            "database/"
+            "tests/"
         ]
     },
     "scripts": {
