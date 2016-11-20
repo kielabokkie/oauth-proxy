@@ -22,7 +22,7 @@ You can install OAuth Proxy by running the `composer create-project` command in 
 composer create-project --prefer-dist kielabokkie/oauth-proxy
 ```
 
-## Usage
+## Configuration
 
 OAuth Proxy provides two endpoints. The first one, to acquire an access token using the `password` grant, is `/oauth/token`. The second endpoint, which lets you refresh access tokens, is `/oauth/token/refresh`.  If you prefer to use different endpoints for the Proxy (maybe to match the style of your API) you can overwrite the endpoints in the `.env` file, more on that later.
 
@@ -59,4 +59,32 @@ The last three parameters are all OAuth related. Here you specify the client id 
 
 ### Webserver setup
 
-As this Proxy is separate from your API and front-end you will need to setup your webserver to serve this application. You can either setup a subdomain (e.g. `proxy.myapp.dev`) or have your webserver switch to your proxy based on the uri of your endpoints.
+As this Proxy is separate from your API and front-end you will need to setup your webserver to serve this application. You can either setup a subdomain (e.g. `proxy.myapp.com`) or have your webserver switch to your proxy based on the uri of your endpoints.
+
+## Usage
+
+So you have everything setup now and your Proxy is ready to be used!
+
+### Password grant
+
+The `/oauth/token` endpoint requires a `POST` request with the `username` and `password` as parameters. Below is a example CURL command that sends the username and password as `x-www-form-urlencoded` data (as per the OAuth 2.0 spec):
+
+```
+curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'username=wouter@myapp.com&password=password' "http://proxy.myapp.com/oauth/token"
+```
+
+If you prefer to send JSON encoded data you can also do that:
+
+```
+curl -X POST -H "Content-Type: application/json" -d '{"username": "wouter@myapp.com", "password": "password"}' "http://proxy.myapp.com/oauth/token"
+```
+
+### Refresh token grant
+
+The `/oauth/token/refresh` endpoint requires a `GET` request with the `Authorization` header containing the bearer token (e.g. the access token that expired). Below is an example of such request:
+
+```
+curl -X GET -H "Authorization: Bearer F9kqePKN424Ci3hRDqk5vzsGjP3qnXrnqGUxxiE9" "http://proxy.myapp.com/oauth/token/refresh"
+```
+
+That's it, happy Proxying!
