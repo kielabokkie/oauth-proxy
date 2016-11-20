@@ -14,6 +14,14 @@ As this project is built with [Lumen](https://lumen.laravel.com) it requires a P
 
 At the moment it also depends on [Redis](https://redis.io) as it makes it fast and easy to store key-value pairs with an expiration but I intend to add other providers as well.
 
+## Installation
+
+You can install OAuth Proxy by running the `composer create-project` command in your terminal:
+
+```
+composer create-project --prefer-dist kielabokkie/oauth-proxy
+```
+
 ## Usage
 
 OAuth Proxy provides two endpoints. The first one, to acquire an access token using the `password` grant, is `/oauth/token`. The second endpoint, which lets you refresh access tokens, is `/oauth/token/refresh`.  If you prefer to use different endpoints for the Proxy (maybe to match the style of your API) you can overwrite the endpoints in the `.env` file, more on that later.
