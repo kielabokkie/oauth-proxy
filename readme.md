@@ -49,7 +49,7 @@ OAUTH_CLIENT_SECRET=s3cr3tk3y
 OAUTH_REFRESH_TOKEN_TTL=2592000 # 30 days
 ```
 
-The first three parameters are standard Lumen ones that you have to changed based on your environment (e.g. don’s set `APP_DEBUG` to `true` on production environments). The `APP_KEY` can be set automatically by running the `php artisan key:generate` command.
+The first three parameters are standard Lumen ones that you have to changed based on your environment (e.g. don’t set `APP_DEBUG` to `true` on production environments). The `APP_KEY` can be set automatically by running the `php artisan key:generate` command.
 
 The `ROUTE_ACCESS_TOKEN` and `ROUTE_REFRESH_TOKEN` are used to customise the endpoints of the Proxy (as mentioned earlier).
 
