@@ -1,7 +1,7 @@
 {
-    "name": "laravel/lumen",
-    "description": "The Laravel Lumen Framework.",
-    "keywords": ["framework", "laravel", "lumen"],
+    "name": "kielabokkie/oauth-proxy",
+    "description": "OAuth Proxy for single-page apps.",
+    "keywords": ["oauth", "proxy", "laravel", "lumen"],
     "license": "MIT",
     "type": "project",
     "require": {
