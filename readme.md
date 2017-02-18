@@ -47,6 +47,10 @@ API_REFRESH_TOKEN_ENDPOINT='/v1/oauth/token'
 OAUTH_CLIENT_ID=my-spa-client
 OAUTH_CLIENT_SECRET=s3cr3tk3y
 OAUTH_REFRESH_TOKEN_TTL=2592000 # 30 days
+
+CORS_ALLOW_ORIGIN='*'
+CORS_ALLOW_METHODS='OPTIONS, GET, POST, PUT, PATCH, DELETE'
+CORS_ALLOW_HEADERS='Authorization, Content-Type'
 ```
 
 The first three parameters are standard Lumen ones that you have to changed based on your environment (e.g. don’t set `APP_DEBUG` to `true` on production environments). The `APP_KEY` can be set automatically by running the `php artisan key:generate` command.
@@ -55,7 +59,9 @@ The `ROUTE_ACCESS_TOKEN` and `ROUTE_REFRESH_TOKEN` are used to customise the end
 
 The next set of parameters are all related to your actual API, the `API_URL` is the full URL of your API. `API_ACCESS_TOKEN_ENDPOINT` and `API_REFRESH_TOKEN_ENDPOINT` allow you to specify what endpoint on your API should be used for getting an access token and refreshing an access token.
 
-The last three parameters are all OAuth related. Here you specify the client id and client secret and the TTL of your refresh tokens. For this last parameter you have to make sure it matches the TTL you have set for refresh tokens on your OAuth server. It’s important that these are the same as the TTL is used to automatically remove them from the datastore after they expire.
+Next we have the OAuth related parameters. Here you specify the client id and client secret and the TTL of your refresh tokens. For this last parameter you have to make sure it matches the TTL you have set for refresh tokens on your OAuth server. It’s important that these are the same as the TTL is used to automatically remove them from the datastore after they expire.
+
+The last three parameters are all to handle CORS headers.
 
 ### Webserver setup
 

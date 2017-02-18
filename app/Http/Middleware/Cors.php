@@ -18,10 +18,10 @@ class Cors
     {
         $headers = [
             'Access-Control-Allow-Origin' => env('CORS_ALLOW_ORIGIN'),
-            'Access-Control-Allow-Methods' => 'OPTIONS, POST, GET, PUT, PATCH, DELETE',
+            'Access-Control-Allow-Methods' => env('CORS_ALLOW_METHODS'),
+            'Access-Control-Allow-Headers' => env('CORS_ALLOW_HEADERS'),
             'Access-Control-Allow-Credentials' => 'true',
-            'Access-Control-Max-Age' => '86400',
-            'Access-Control-Allow-Headers' => 'Authorization, Content-Type, X-Requested-With'
+            'Access-Control-Max-Age' => '600'
         ];
 
         // Catch OPTIONS requests as Lumen doesn't handle these by default
