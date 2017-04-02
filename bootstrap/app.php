@@ -29,6 +29,17 @@ $app = new Laravel\Lumen\Application(
 
 /*
 |--------------------------------------------------------------------------
+| Load configuration files
+|--------------------------------------------------------------------------
+|
+| Here we will load the configuration files that are stored in the /config
+| folder in the root of the project.
+|
+*/
+$app->configure('redis');
+
+/*
+|--------------------------------------------------------------------------
 | Register Container Bindings
 |--------------------------------------------------------------------------
 |

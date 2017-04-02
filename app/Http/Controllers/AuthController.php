@@ -24,6 +24,11 @@ class AuthController extends Controller
      */
     public function __construct(Client $redis)
     {
+        // Load uri from config if it has been set
+        if (config('redis.uri') !== null) {
+            $redis = new Client(config('redis.uri'));
+        }
+
         $this->redis = $redis;
     }
 

@@ -51,6 +51,8 @@ OAUTH_REFRESH_TOKEN_TTL=2592000 # 30 days
 CORS_ALLOW_ORIGIN='*'
 CORS_ALLOW_METHODS='OPTIONS, GET, POST, PUT, PATCH, DELETE'
 CORS_ALLOW_HEADERS='Authorization, Content-Type'
+
+REDIS_URI='tcp://127.0.0.1:6379'
 ```
 
 The first three parameters are standard Lumen ones that you have to changed based on your environment (e.g. don’t set `APP_DEBUG` to `true` on production environments). The `APP_KEY` can be set automatically by running the `php artisan key:generate` command.
@@ -61,7 +63,9 @@ The next set of parameters are all related to your actual API, the `API_URL` is 
 
 Next we have the OAuth related parameters. Here you specify the client id and client secret and the TTL of your refresh tokens. For this last parameter you have to make sure it matches the TTL you have set for refresh tokens on your OAuth server. It’s important that these are the same as the TTL is used to automatically remove them from the datastore after they expire.
 
-The last three parameters are all to handle CORS headers.
+The next three parameters are all to handle CORS headers.
+
+Lastly we have the optional `REDIS_URI` variable. If you don't add this variable to your `.env` file the application uses the following URI for the Redis connection `tcp://127.0.0.1:6379`. The `REDIS_URI` variable allows you to customise the URI in case you want to use a custom IP address or port.
 
 ### Webserver setup
 
